@@ -1,0 +1,57 @@
+.drawer-background {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+}
+
+.drawer-background .drawer-container {
+  background-color: #f2f2f2;
+  min-width: 300px;
+  width: 30%;
+  max-width: 400px;
+  height: 100%;
+  position: relative;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes openDrawer {
+  from {
+    right: 30%;
+  }
+  to {
+    right: 0;
+  }
+}
+
+@keyframes closeDrawer {
+  from {
+    right: 0;
+  }
+  to {
+    right: 30%;
+  }
+}
+
+.drawer-open {
+  animation: openDrawer 1s;
+}
+
+.drawer-close {
+  animation: closeDrawer 1s;
+}
+
+.drawer-background .drawer-container .drawer-close-icon {
+  width: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.drawer-background .drawer-container .drawer-content {
+  position: absolute;
+  top: 70px;
+}

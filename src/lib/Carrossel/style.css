@@ -1,0 +1,25 @@
+.carrossel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.carrossel-container .carrossel-button {
+  width: 20px;
+  cursor: pointer;
+}
+
+.carrossel-container .carrossel-content {
+  display: flex;
+  width: 440px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.carrossel-container .carrossel-content .carrossel-item {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  margin: 0px 10px;
+}

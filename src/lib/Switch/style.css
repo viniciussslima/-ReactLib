@@ -1,0 +1,62 @@
+.switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.switch-container span {
+  margin-left: 10px;
+}
+
+.switch-container .switch-content {
+  position: relative;
+  cursor: pointer;
+}
+
+.switch-container .switch-content .switch-line {
+  width: 60px;
+  height: 20px;
+  border-radius: 20px;
+}
+
+@keyframes circle-right {
+  from {
+    right: 30px;
+  }
+  to {
+    right: 0;
+  }
+}
+
+.switch-container .switch-content .switch-circle-right {
+  background-color: #f2f2f2;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -5px;
+  right: 0;
+  border: 2px solid;
+  border-radius: 30px;
+  animation: circle-right 0.1s;
+}
+
+@keyframes circle-left {
+  from {
+    left: 30px;
+  }
+  to {
+    left: 0px;
+  }
+}
+
+.switch-container .switch-content .switch-circle-left {
+  background-color: #f2f2f2;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  border: 2px solid;
+  border-radius: 30px;
+  animation: circle-left 0.1s;
+}

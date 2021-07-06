@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Drawer, Loading, Modal, Carrossel, CarrosselItem } from "./lib";
+import {
+  Drawer,
+  Loading,
+  Modal,
+  Carrossel,
+  CarrosselItem,
+  Switch,
+} from "./lib";
 
 function App() {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [openModal, setOPenModal] = useState(false);
   const [showCarrosel, setShowCarrosel] = useState(false);
+  const [showSwitch, setShowSwitch] = useState(false);
+  const [check, setCheck] = useState(false);
 
   useEffect(() => {
     if (isLoading) {
@@ -27,6 +36,9 @@ function App() {
         <button onClick={() => setOPenModal(true)}>Open modal</button>
         <button onClick={() => setShowCarrosel(!showCarrosel)}>
           Show/Hide carrosel
+        </button>
+        <button onClick={() => setShowSwitch(!showSwitch)}>
+          Show/Hide switch
         </button>
       </div>
       <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
@@ -111,6 +123,20 @@ function App() {
             </div>
           </CarrosselItem>
         </Carrossel>
+      )}
+      {showSwitch && (
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: 50,
+          }}
+        >
+          <Switch check={check} onChange={(value) => setCheck(value)} />
+          {check}
+        </div>
       )}
     </div>
   );

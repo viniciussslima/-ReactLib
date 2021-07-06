@@ -84,3 +84,20 @@
   justify-content: flex-end;
   padding: 10px;
 }
+
+.modal-background .modal-container .modal-buttons .modal-button {
+  color: #f1f1f1;
+  width: 70px;
+  margin: 0px 5px;
+  outline: none;
+  border: none;
+  padding: 5px;
+}
+
+.modal-background .modal-container .modal-buttons .modal-button-ok {
+  background-color: #4caf50;
+}
+
+.modal-background .modal-container .modal-buttons .modal-button-cancel {
+  background-color: #f44336;
+}

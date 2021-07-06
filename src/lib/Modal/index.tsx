@@ -21,6 +21,8 @@ interface ModalProps {
   title: string;
   titleStyle?: CSSProperties;
   setResponse: (value: boolean) => void;
+  cancelButtonStyle?: CSSProperties;
+  okButtonStyle?: CSSProperties;
   children: ReactNode;
 }
 
@@ -35,6 +37,8 @@ const Modal: FC<ModalProps> = ({
   setResponse,
   title,
   titleStyle,
+  cancelButtonStyle,
+  okButtonStyle,
   children,
 }) => {
   const [openControll, setOpenControll] = useState(false);
@@ -79,8 +83,20 @@ const Modal: FC<ModalProps> = ({
         </div>
         <hr />
         <div className="modal-buttons" style={contentStyle}>
-          <button onClick={cancel}>Cancel</button>
-          <button onClick={confirm}>Ok</button>
+          <button
+            className="viniciussslima-button modal-button modal-button-cancel"
+            onClick={cancel}
+            style={cancelButtonStyle}
+          >
+            Cancel
+          </button>
+          <button
+            className="viniciussslima-button modal-button modal-button-ok"
+            onClick={confirm}
+            style={okButtonStyle}
+          >
+            Ok
+          </button>
         </div>
       </>
     );

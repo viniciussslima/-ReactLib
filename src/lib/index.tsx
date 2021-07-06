@@ -6,4 +6,6 @@ import CarrosselItem from "./Carrossel/CarrosselItem";
 import Switch from "./Switch";
 import Toast from "./Toast";
 
+import "./style.css";
+
 export { Drawer, Loading, Modal, Carrossel, CarrosselItem, Switch, Toast };

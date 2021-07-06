@@ -8,3 +8,5 @@ Uma lib de compenentes ReactJs contruida com typescript
 - Modal
 - Loading
 - Carrossel
+- Switch
+- Toast

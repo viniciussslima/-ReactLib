@@ -4,5 +4,6 @@ import Modal from "./Modal";
 import Carrossel from "./Carrossel";
 import CarrosselItem from "./Carrossel/CarrosselItem";
 import Switch from "./Switch";
+import Toast from "./Toast";
 
-export { Drawer, Loading, Modal, Carrossel, CarrosselItem, Switch };
+export { Drawer, Loading, Modal, Carrossel, CarrosselItem, Switch, Toast };

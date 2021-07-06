@@ -1,0 +1,37 @@
+@keyframes toast-up {
+  from {
+    bottom: -500px;
+  }
+
+  to {
+    bottom: 10px;
+  }
+}
+
+.toast {
+  color: #f1f1f1;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  border-radius: 2px;
+  z-index: 100;
+  box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 15px;
+  animation: toast-up 1s;
+}
+
+.toast .toast-icon {
+  width: 20px;
+  margin: 0px 10px 5px 0px;
+}
+
+.toast .toast-close {
+  width: 15px;
+  cursor: pointer;
+  margin: 0px 10px;
+  position: absolute;
+  right: 10px;
+}

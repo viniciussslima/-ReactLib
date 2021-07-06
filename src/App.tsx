@@ -6,6 +6,7 @@ import {
   Carrossel,
   CarrosselItem,
   Switch,
+  Toast,
 } from "./lib";
 
 function App() {
@@ -15,11 +16,15 @@ function App() {
   const [showCarrosel, setShowCarrosel] = useState(false);
   const [showSwitch, setShowSwitch] = useState(false);
   const [check, setCheck] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
+    let timeout: NodeJS.Timeout;
     if (isLoading) {
-      setTimeout(() => setIsLoading(false), 3000);
+      timeout = setTimeout(() => setIsLoading(false), 3000);
     }
+
+    return () => clearTimeout(timeout);
   }, [isLoading]);
 
   return (
@@ -40,6 +45,7 @@ function App() {
         <button onClick={() => setShowSwitch(!showSwitch)}>
           Show/Hide switch
         </button>
+        <button onClick={() => setShowToast(true)}>Show/Hide toast</button>
       </div>
       <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
         <></>
@@ -138,6 +144,12 @@ function App() {
           {check}
         </div>
       )}
+      <Toast
+        show={showToast}
+        onHide={() => setShowToast(false)}
+        text="Something is wrong!"
+        type="error"
+      />
     </div>
   );
 }

@@ -56,6 +56,18 @@ declare global {
     type: string;
     time?: number;
   }
+
+  interface MenuProps {
+    show: boolean;
+    onHide: () => void;
+    anchor: HTMLElement | null;
+    children: Array<ReactNode>;
+  }
+
+  interface MenuItemProps {
+    children: string;
+    onClick: () => void;
+  }
 }
 
 export {};

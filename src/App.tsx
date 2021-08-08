@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, RefObject } from "react";
 import {
   Drawer,
   Loading,
@@ -7,9 +7,13 @@ import {
   CarrosselItem,
   Switch,
   Toast,
+  Menu,
+  MenuItem,
 } from "./lib";
 
 function App() {
+  const menuButton = useRef<HTMLElement>(null);
+
   const [openDrawer, setOpenDrawer] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [openModal, setOPenModal] = useState(false);
@@ -17,6 +21,7 @@ function App() {
   const [showSwitch, setShowSwitch] = useState(false);
   const [check, setCheck] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -46,6 +51,12 @@ function App() {
           Show/Hide switch
         </button>
         <button onClick={() => setShowToast(true)}>Show/Hide toast</button>
+        <button
+          ref={menuButton as RefObject<HTMLButtonElement>}
+          onClick={() => setShowMenu(true)}
+        >
+          Show/Hide menu
+        </button>
       </div>
       <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
         <></>
@@ -150,6 +161,22 @@ function App() {
         text="Something is wrong!"
         type="error"
       />
+
+      <Menu
+        show={showMenu}
+        onHide={() => setShowMenu(false)}
+        anchor={menuButton.current}
+      >
+        <MenuItem onClick={() => console.log("Item 1 selected")}>
+          Item 1
+        </MenuItem>
+        <MenuItem onClick={() => console.log("Item 2 selected")}>
+          Item 2
+        </MenuItem>
+        <MenuItem onClick={() => console.log("Item 2 selected")}>
+          Item 3
+        </MenuItem>
+      </Menu>
     </div>
   );
 }

@@ -10,3 +10,4 @@ Uma lib de compenentes ReactJs contruida com typescript
 - Carrossel
 - Switch
 - Toast
+- Menu

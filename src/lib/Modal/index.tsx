@@ -1,30 +1,7 @@
-import React, {
-  FC,
-  MouseEventHandler,
-  CSSProperties,
-  ReactNode,
-  useState,
-  useEffect,
-} from "react";
+import React, { FC, useState, useEffect } from "react";
 import "./style.css";
 
 import defaultCloseIcon from "../assets/drawer/close.svg";
-
-interface ModalProps {
-  open: boolean;
-  onClose: MouseEventHandler<HTMLElement>;
-  containerStyle?: CSSProperties;
-  contentStyle?: CSSProperties;
-  closeButton?: boolean;
-  closeIcon?: string;
-  closeIconStyle?: CSSProperties;
-  title: string;
-  titleStyle?: CSSProperties;
-  setResponse: (value: boolean) => void;
-  cancelButtonStyle?: CSSProperties;
-  okButtonStyle?: CSSProperties;
-  children: ReactNode;
-}
 
 const Modal: FC<ModalProps> = ({
   open,

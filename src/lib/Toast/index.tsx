@@ -6,13 +6,6 @@ import warningIcon from "../assets/toast/warning.svg";
 import errorIcon from "../assets/toast/error.svg";
 import closeIcon from "../assets/toast/close.svg";
 
-interface ToastProps {
-  show: boolean;
-  onHide: () => void;
-  text: string;
-  type: string;
-  time?: number;
-}
 const Toast: FC<ToastProps> = ({ show, onHide, text, type, time = 5000 }) => {
   const icon: string = useMemo(() => {
     switch (type) {

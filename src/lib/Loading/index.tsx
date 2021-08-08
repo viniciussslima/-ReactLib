@@ -1,10 +1,6 @@
 import React, { FC } from "react";
 import "./style.css";
 
-interface LoadingProps {
-  isLoading?: boolean;
-}
-
 const Loading: FC<LoadingProps> = ({ isLoading }) => {
   return (
     <>

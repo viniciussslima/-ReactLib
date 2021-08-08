@@ -1,21 +1,9 @@
-import React, {
-  FC,
-  ReactNode,
-  useRef,
-  useState,
-  useCallback,
-  useEffect,
-} from "react";
+import React, { FC, useRef, useState, useCallback, useEffect } from "react";
 import "./style.css";
 
 import leftIcon from "../assets/carrossel/left.svg";
 import rightIcon from "../assets/carrossel/right.svg";
 
-interface CarrosselProps {
-  children: Array<ReactNode>;
-  qty: number;
-  timeout?: number;
-}
 const Carrossel: FC<CarrosselProps> = ({ children = [], qty, timeout }) => {
   const content = useRef<HTMLDivElement>(null);
 

@@ -1,14 +1,6 @@
 import React, { FC } from "react";
 import "./style.css";
 
-interface SwitchProps {
-  check: boolean;
-  onChange: (value: boolean) => void;
-  text?: string;
-  checkColor?: string;
-  unCheckColor?: string;
-}
-
 const Switch: FC<SwitchProps> = ({
   check,
   onChange,

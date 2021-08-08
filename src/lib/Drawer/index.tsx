@@ -1,24 +1,7 @@
-import React, {
-  FC,
-  CSSProperties,
-  ReactNode,
-  useState,
-  useEffect,
-} from "react";
+import React, { FC, useState, useEffect } from "react";
 import "./style.css";
 
 import defaultCloseIcon from "../assets/drawer/close.svg";
-
-interface DrawerProps {
-  open: boolean;
-  onClose: React.MouseEventHandler<HTMLImageElement>;
-  containerStyle?: CSSProperties;
-  contentStyle?: CSSProperties;
-  closeButton?: boolean;
-  closeIcon?: string;
-  closeIconStyle?: CSSProperties;
-  children: ReactNode;
-}
 
 const Drawer: FC<DrawerProps> = ({
   open,

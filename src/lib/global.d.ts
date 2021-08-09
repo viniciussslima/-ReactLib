@@ -31,7 +31,7 @@ declare global {
   }
 
   interface CarrosselProps {
-    children: Array<ReactNode>;
+    children: ReactNode | Array<ReactNode>;
     qty: number;
     timeout?: number;
   }
@@ -61,7 +61,7 @@ declare global {
     show: boolean;
     onHide: () => void;
     anchor: HTMLElement | null;
-    children: Array<ReactNode>;
+    children: ReactNode | Array<ReactNode>;
   }
 
   interface MenuItemProps {

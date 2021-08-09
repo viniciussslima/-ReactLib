@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useEffect } from "react";
 import "./style.css";
 
-const Menu: FC<MenuProps> = ({ show, onHide, anchor, children = [] }) => {
+const Menu: FC<MenuProps> = ({ show, onHide, anchor, children }) => {
   const hide = useCallback(
     (event: Event) => {
       if (event.target !== anchor) {
@@ -10,6 +10,21 @@ const Menu: FC<MenuProps> = ({ show, onHide, anchor, children = [] }) => {
     },
     [anchor, onHide]
   );
+
+  useEffect(() => {
+    let valid: boolean = true;
+    if (Array.isArray(children)) {
+      valid = children.every((element) => element.type.name === "MenuItem");
+    } else if (children.type.name !== "MenuItem") {
+      valid = false;
+    }
+
+    if (!valid) {
+      throw new Error(
+        "The Menu component must have only children of type MenuItem component"
+      );
+    }
+  }, [children]);
 
   useEffect(() => {
     if (show) {

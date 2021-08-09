@@ -4,7 +4,7 @@ import "./style.css";
 import leftIcon from "../assets/carrossel/left.svg";
 import rightIcon from "../assets/carrossel/right.svg";
 
-const Carrossel: FC<CarrosselProps> = ({ children = [], qty, timeout }) => {
+const Carrossel: FC<CarrosselProps> = ({ children, qty, timeout }) => {
   const content = useRef<HTMLDivElement>(null);
 
   const [canClick, setCanClick] = useState(true);
@@ -37,21 +37,36 @@ const Carrossel: FC<CarrosselProps> = ({ children = [], qty, timeout }) => {
   }, [canClick, qty]);
 
   useEffect(() => {
-    if (qty === 0) {
+    let valid: boolean = true;
+    if (Array.isArray(children)) {
+      valid = children.every(
+        (element) => element.type.name === "CarrosselItem"
+      );
+    } else if (children.type.name !== "CarrosselItem") {
+      valid = false;
+    }
+
+    if (!valid) {
+      throw new Error(
+        "The Carrossel component must have only children of type CarrosselItem component"
+      );
+    }
+  }, [children]);
+
+  useEffect(() => {
+    if (qty <= 0) {
       throw new Error("The carrossel component must have at least qty = 1");
     }
+  }, [qty]);
 
-    if (!children.length) {
-      throw new Error("The carrossel component must have at least one child");
-    }
-
+  useEffect(() => {
     let interval: NodeJS.Timeout;
     if (timeout) {
       interval = setInterval(goForward, timeout);
     }
 
     return () => clearInterval(interval);
-  }, [qty, children, goForward, timeout]);
+  }, [children, goForward, timeout]);
 
   useEffect(() => {
     let timeout = setTimeout(() => setCanClick(true), 500);

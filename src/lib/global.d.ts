@@ -68,6 +68,11 @@ declare global {
     children: string;
     onClick: () => void;
   }
+
+  interface TooltipProps {
+    message: string;
+    children: ReactNode;
+  }
 }
 
 export {};

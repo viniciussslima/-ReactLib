@@ -9,6 +9,7 @@ import {
   Toast,
   Menu,
   MenuItem,
+  Tooltip,
 } from "./lib";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   const [check, setCheck] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -56,6 +58,10 @@ function App() {
           onClick={() => setShowMenu(true)}
         >
           Show/Hide menu
+        </button>
+
+        <button onClick={() => setShowTooltip(!showTooltip)}>
+          Show/Hide Tooltip
         </button>
       </div>
       <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
@@ -177,6 +183,22 @@ function App() {
           Item 3
         </MenuItem>
       </Menu>
+
+      {showTooltip && (
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: 50,
+          }}
+        >
+          <Tooltip message="Message">
+            <p>Tooltip example</p>
+          </Tooltip>
+        </div>
+      )}
     </div>
   );
 }

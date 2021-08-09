@@ -7,6 +7,7 @@ import Switch from "./Switch";
 import Toast from "./Toast";
 import Menu from "./Menu";
 import MenuItem from "./Menu/MenuItem";
+import Tooltip from "./Tooltip";
 
 import "./style.css";
 
@@ -20,4 +21,5 @@ export {
   Toast,
   Menu,
   MenuItem,
+  Tooltip,
 };

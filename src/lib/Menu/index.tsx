@@ -1,10 +1,20 @@
-import React, { FC, useCallback, useEffect } from "react";
+import React, { FC, useState, useRef, useCallback, useEffect } from "react";
 import "./style.css";
 
 const Menu: FC<MenuProps> = ({ show, onHide, anchor, children }) => {
+  const [position, setPosition] = useState<DOMRect>();
+
+  const menuRef = useRef<HTMLUListElement>(null);
+
   const hide = useCallback(
     (event: Event) => {
-      if (event.target !== anchor) {
+      const node = menuRef.current;
+      if (
+        node &&
+        event.target !== node &&
+        !node.contains(event.target as HTMLElement) &&
+        event.target !== anchor
+      ) {
         onHide();
       }
     },
@@ -27,6 +37,12 @@ const Menu: FC<MenuProps> = ({ show, onHide, anchor, children }) => {
   }, [children]);
 
   useEffect(() => {
+    if (anchor) {
+      setPosition(anchor.getBoundingClientRect());
+    }
+  }, [anchor]);
+
+  useEffect(() => {
     if (show) {
       document.addEventListener("click", hide);
     } else {
@@ -38,14 +54,20 @@ const Menu: FC<MenuProps> = ({ show, onHide, anchor, children }) => {
 
   return (
     <>
-      {anchor && show ? (
+      {position && show ? (
         <ul
           className="menu-container"
           style={{
-            minWidth: anchor.offsetWidth,
-            left: anchor.offsetLeft,
-            top: anchor.offsetTop + anchor.offsetHeight + 2,
+            backgroundColor: "#fff",
+            position: "absolute",
+            boxShadow: "-4px 4px 4px rgba(0, 0, 0, 0.25)",
+            minWidth: position.width,
+            left: position.x,
+            top: position.y + position.height + 2,
+            padding: 10,
+            borderRadius: 4,
           }}
+          ref={menuRef}
         >
           {children}
         </ul>

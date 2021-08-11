@@ -13,15 +13,16 @@ import { Drawer } from "viniciussslima"
 const DrawerExample = () => {
     const [openDrawer, setOpenDrawer] = useState(false);
 
-    <button onClick={() => setOpenDrawer(true)}>Open drawer</button>
-
     return (
-        <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-            </ul>
-        </Drawer>
+        <div>
+            <button onClick={() => setOpenDrawer(true)}>Open drawer</button>
+            <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                </ul>
+            </Drawer>
+        </div>
     )
 }
 ```
@@ -35,27 +36,126 @@ import { Modal } from "viniciussslima"
 const ModalExample = () => {
     const [openModal, setOPenModal] = useState(false);
 
-    <button onClick={() => setOPenModal(true)}>Open modal</button>
-
     return (
-        <Modal
-            open={openModal}
-            onClose={() => setOPenModal(false)}
-            title="Modal example"
-            setResponse={(value) => {
-            value ? console.log("ok") : console.log("cancel");
-            }}
-        >
-            <div>
-                <span>Hello word!</span>
-            </div>
-        </Modal>
+        <div>
+            <button onClick={() => setOPenModal(true)}>Open modal</button>
+            <Modal
+                open={openModal}
+                onClose={() => setOPenModal(false)}
+                title="Modal example"
+                setResponse={(value) => {
+                value ? console.log("ok") : console.log("cancel");
+                }}
+            >
+                <div>
+                    <span>Hello word!</span>
+                </div>
+            </Modal>
+        </div>
     )
 }
 ```
 
 - Loading
-- Carrossel
+
+```JSX
+import React, { useState, useEffect } from "react";
+import { Loading } from "viniciussslima"
+
+const LoadingExample = () => {
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        let timeout;
+        if (isLoading) {
+            timeout = setTimeout(() => setIsLoading(false), 3000);
+        }
+
+        return () => clearTimeout(timeout);
+    }, [isLoading]);
+
+    return (
+        <div>
+            <button onClick={() => setIsLoading(true)}>Open loading</button>
+            <Loading isLoading={isLoading} />
+        </div>
+    )
+}
+```
+
 - Switch
+
+```JSX
+import React, { useState } from "react";
+import { Switch } from "viniciussslima"
+
+const SwitchExample = () => {
+    const [isCheck, setIsCheck] = useState(false);
+
+    return (
+        <Switch check={check} onChange={(value) => setIsCheck(value)} />
+    )
+}
+```
+
 - Toast
+
+```JSX
+import React, { useState } from "react";
+import { Toast } from "viniciussslima"
+
+const ToastExample = () => {
+    const [showToast, setShowToast] = useState(false);
+
+    return (
+        <div>
+            <button onClick={() => setShowToast(true)}>Show toast</button>
+            <Toast
+                show={showToast}
+                onHide={() => setShowToast(false)}
+                text="Something is wrong!"
+                type="error"
+            />
+        </div>
+    )
+}
+```
+
 - Menu
+
+```JSX
+import React, { useRef, useState } from "react";
+import { Menu, MenuItem } from "viniciussslima"
+
+const MenuExample = () => {
+    const menuButton = useRef<HTMLElement>(null);
+
+    const [showMenu, setShowMenu] = useState(false);
+
+    return (
+        <div>
+            <button
+            ref={menuButton as RefObject<HTMLButtonElement>}
+            onClick={() => setShowMenu(true)}
+            >
+            Show menu
+            </button>
+            <Menu
+                show={showMenu}
+                onHide={() => setShowMenu(false)}
+                anchor={menuButton.current}
+            >
+                <MenuItem onClick={() => console.log("Item 1 selected")}>
+                Item 1
+                </MenuItem>
+                <MenuItem onClick={() => console.log("Item 2 selected")}>
+                Item 2
+                </MenuItem>
+                <MenuItem onClick={() => console.log("Item 2 selected")}>
+                Item 3
+                </MenuItem>
+            </Menu>
+        </div>
+    )
+}
+```

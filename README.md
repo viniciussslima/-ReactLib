@@ -44,7 +44,7 @@ const ModalExample = () => {
                 onClose={() => setOPenModal(false)}
                 title="Modal example"
                 setResponse={(value) => {
-                value ? console.log("ok") : console.log("cancel");
+                    value ? console.log("ok") : console.log("cancel");
                 }}
             >
                 <div>
@@ -135,10 +135,10 @@ const MenuExample = () => {
     return (
         <div>
             <button
-            ref={menuButton as RefObject<HTMLButtonElement>}
-            onClick={() => setShowMenu(true)}
+                ref={menuButton as RefObject<HTMLButtonElement>}
+                onClick={() => setShowMenu(true)}
             >
-            Show menu
+                Show menu
             </button>
             <Menu
                 show={showMenu}
@@ -146,13 +146,13 @@ const MenuExample = () => {
                 anchor={menuButton.current}
             >
                 <MenuItem onClick={() => console.log("Item 1 selected")}>
-                Item 1
+                    Item 1
                 </MenuItem>
                 <MenuItem onClick={() => console.log("Item 2 selected")}>
-                Item 2
+                    Item 2
                 </MenuItem>
                 <MenuItem onClick={() => console.log("Item 2 selected")}>
-                Item 3
+                    Item 3
                 </MenuItem>
             </Menu>
         </div>

@@ -58,14 +58,9 @@ const Menu: FC<MenuProps> = ({ show, onHide, anchor, children }) => {
         <ul
           className="menu-container"
           style={{
-            backgroundColor: "#fff",
-            position: "absolute",
-            boxShadow: "-4px 4px 4px rgba(0, 0, 0, 0.25)",
             minWidth: position.width,
             left: position.x,
             top: position.y + position.height + 2,
-            padding: 10,
-            borderRadius: 4,
           }}
           ref={menuRef}
         >

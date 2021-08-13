@@ -1,10 +1,19 @@
 import React, { FC, useRef, useState, useCallback, useEffect } from "react";
 import "./style.css";
 
+import { nanoid } from "nanoid";
+
 import leftIcon from "../assets/carrossel/left.svg";
 import rightIcon from "../assets/carrossel/right.svg";
 
-const Carrossel: FC<CarrosselProps> = ({ children, qty, timeout }) => {
+const Carrossel: FC<CarrosselProps> = ({
+  children,
+  height,
+  itemWidth,
+  space,
+  qty,
+  timeout,
+}) => {
   const content = useRef<HTMLDivElement>(null);
 
   const [canClick, setCanClick] = useState(true);
@@ -12,29 +21,30 @@ const Carrossel: FC<CarrosselProps> = ({ children, qty, timeout }) => {
   const goBack = useCallback(() => {
     if (content.current !== null && canClick) {
       if (content.current.scrollLeft > 0) {
-        let nextScroll = content.current.scrollLeft - 220;
+        let nextScroll = content.current.scrollLeft - itemWidth;
         content.current.scroll(nextScroll, nextScroll);
       } else {
-        content.current.scroll(220 * children.length, 220 * children.length);
+        content.current.scroll(
+          itemWidth * children.length,
+          itemWidth * children.length
+        );
       }
     }
-    setCanClick(false);
-  }, [canClick, children]);
+  }, [itemWidth, canClick, children]);
 
   const goForward = useCallback(() => {
     if (content.current !== null && canClick) {
       if (
         content.current.scrollWidth - content.current.scrollLeft !==
-        220 * qty
+        itemWidth * qty
       ) {
-        let nextScroll = content.current.scrollLeft + 220;
+        let nextScroll = content.current.scrollLeft + itemWidth;
         content.current.scroll(nextScroll, nextScroll);
       } else {
         content.current.scroll(0, 0);
       }
     }
-    setCanClick(false);
-  }, [canClick, qty]);
+  }, [itemWidth, canClick, qty]);
 
   useEffect(() => {
     let valid: boolean = true;
@@ -51,7 +61,7 @@ const Carrossel: FC<CarrosselProps> = ({ children, qty, timeout }) => {
         "The Carrossel component must have only children of type CarrosselItem component"
       );
     }
-  }, [children]);
+  }, [children, itemWidth]);
 
   useEffect(() => {
     if (qty <= 0) {
@@ -71,11 +81,11 @@ const Carrossel: FC<CarrosselProps> = ({ children, qty, timeout }) => {
   useEffect(() => {
     let timeout = setTimeout(() => setCanClick(true), 500);
     return () => clearTimeout(timeout);
-  });
+  }, []);
 
   return (
     <>
-      <div className="carrossel-container">
+      <div className="carrossel-container" style={{ height }}>
         <img
           className="carrossel-button"
           src={leftIcon}
@@ -84,10 +94,27 @@ const Carrossel: FC<CarrosselProps> = ({ children, qty, timeout }) => {
         />
         <div
           className="carrossel-content"
-          style={{ width: 220 * qty }}
+          style={{ width: itemWidth * qty }}
           ref={content}
         >
-          {children}
+          {Array.isArray(children) ? (
+            children.map((item) => (
+              <div
+                key={nanoid()}
+                className="carrossel-item-container"
+                style={{ width: itemWidth, padding: `0px ${space}px` }}
+              >
+                {item}
+              </div>
+            ))
+          ) : (
+            <div
+              className="carrossel-item-container"
+              style={{ width: itemWidth }}
+            >
+              {children}
+            </div>
+          )}
         </div>
         <img
           className="carrossel-button"

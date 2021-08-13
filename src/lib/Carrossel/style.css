@@ -12,14 +12,22 @@
 
 .carrossel-container .carrossel-content {
   display: flex;
-  width: 440px;
+  height: 100%;
   overflow: hidden;
   scroll-behavior: smooth;
 }
 
-.carrossel-container .carrossel-content .carrossel-item {
+.carrossel-container .carrossel-content .carrossel-item-container {
+  height: 100%;
+  display: flex;
   flex-shrink: 0;
-  width: 200px;
-  height: 200px;
-  margin: 0px 10px;
+}
+
+.carrossel-container
+  .carrossel-content
+  .carrossel-item-container
+  .carrossel-item {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
 }

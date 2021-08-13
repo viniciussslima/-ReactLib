@@ -32,7 +32,10 @@ declare global {
 
   interface CarrosselProps {
     children: ReactNode | Array<ReactNode>;
+    height: number;
+    itemWidth: number;
     qty: number;
+    space?: number;
     timeout?: number;
   }
 

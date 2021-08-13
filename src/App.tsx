@@ -79,71 +79,56 @@ function App() {
         <></>
       </Modal>
       {showCarrosel && (
-        <Carrossel qty={1} timeout={5000}>
-          <CarrosselItem>
-            <div
-              style={{
-                backgroundColor: "aqua",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "100%",
-              }}
-            >
-              1
-            </div>
+        <Carrossel itemWidth={500} height={100} space={10} qty={2}>
+          <CarrosselItem
+            style={{
+              backgroundColor: "aqua",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            1
           </CarrosselItem>
-          <CarrosselItem>
-            <div
-              style={{
-                backgroundColor: "aqua",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "100%",
-              }}
-            >
-              2
-            </div>
+          <CarrosselItem
+            style={{
+              backgroundColor: "aqua",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            2
           </CarrosselItem>
-          <CarrosselItem>
-            <div
-              style={{
-                backgroundColor: "aqua",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "100%",
-              }}
-            >
-              3
-            </div>
+          <CarrosselItem
+            style={{
+              backgroundColor: "aqua",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            3
           </CarrosselItem>
-          <CarrosselItem>
-            <div
-              style={{
-                backgroundColor: "aqua",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "100%",
-              }}
-            >
-              4
-            </div>
+          <CarrosselItem
+            style={{
+              backgroundColor: "aqua",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            4
           </CarrosselItem>
-          <CarrosselItem>
-            <div
-              style={{
-                backgroundColor: "aqua",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "100%",
-              }}
-            >
-              5
-            </div>
+          <CarrosselItem
+            style={{
+              backgroundColor: "aqua",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            5
           </CarrosselItem>
         </Carrossel>
       )}

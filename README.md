@@ -160,7 +160,7 @@ const MenuExample = () => {
 }
 ```
 
-- Menu
+- Carrossel
 
 ```JSX
 import React from "react";

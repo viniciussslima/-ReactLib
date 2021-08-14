@@ -6,9 +6,19 @@ import { nanoid } from "nanoid";
 import DownIcon from "../assets/list/down.svg";
 
 const List: FC<ListProps> = ({ title, collapsible, initOpen, children }) => {
-  const listContent = useRef<HTMLUListElement>(null);
+  const listContent = useRef(true);
 
-  const [show, setShow] = useState(initOpen);
+  const [show, setShow] = useState(!!initOpen);
+  const [className, setClassName] = useState(() => {
+    if (collapsible) {
+      if (initOpen) {
+        return "list-content";
+      }
+
+      return "list-content-hidden";
+    }
+    return "list-content";
+  });
 
   useEffect(() => {
     let valid: boolean = true;
@@ -39,21 +49,27 @@ const List: FC<ListProps> = ({ title, collapsible, initOpen, children }) => {
 
   useEffect(() => {
     if (listContent.current) {
-      if (collapsible) {
-        if (show) {
-          listContent.current.className = "list-content";
-        } else {
-          listContent.current.className = "list-content-collapsible";
-          setTimeout(() => {
-            if (listContent.current) {
-              listContent.current.className += " list-hidden";
-            }
-          }, 1000);
-        }
-      } else {
-        listContent.current.className = "list-content";
-      }
+      listContent.current = false;
+      return;
     }
+
+    let timeout: NodeJS.Timeout;
+    if (collapsible) {
+      if (show) {
+        setClassName("list-content");
+      } else {
+        setClassName("list-content-collapsible");
+        timeout = setTimeout(() => {
+          setClassName((className) => className + " list-content-hidden");
+        }, 1000);
+      }
+    } else {
+      setClassName("list-content");
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [show, collapsible]);
 
   const renderListItems = () => {
@@ -94,7 +110,7 @@ const List: FC<ListProps> = ({ title, collapsible, initOpen, children }) => {
           )}
         </div>
       )}
-      <ul ref={listContent} style={{ marginLeft: collapsible ? 5 : 0 }}>
+      <ul className={className} style={{ marginLeft: collapsible ? 5 : 0 }}>
         {renderList()}
       </ul>
     </div>

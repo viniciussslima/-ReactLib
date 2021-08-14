@@ -42,13 +42,13 @@
 }
 
 .list-content-collapsible {
-  opacity: 0;
-  height: 0;
   animation: list-close 1s;
 }
 
 .list-content-hidden {
   visibility: hidden;
+  opacity: 0;
+  height: 0;
 }
 
 .list-item {

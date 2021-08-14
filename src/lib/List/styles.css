@@ -1,0 +1,59 @@
+@keyframes list-open {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+
+  to {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes list-close {
+  from {
+    height: 100%;
+    opacity: 1;
+  }
+
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.list-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.list-title {
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.list-down-icon {
+  width: 15px;
+}
+
+.list-content {
+  width: 100%;
+  animation: list-open 1s;
+}
+
+.list-content-collapsible {
+  opacity: 0;
+  height: 0;
+  animation: list-close 1s;
+}
+
+.list-content-hidden {
+  visibility: hidden;
+}
+
+.list-item {
+  width: 100%;
+  cursor: pointer;
+  list-style: none;
+  padding: 10px 5px;
+}

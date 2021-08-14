@@ -10,6 +10,8 @@ import {
   Menu,
   MenuItem,
   Tooltip,
+  List,
+  ListItem,
 } from "./lib";
 
 function App() {
@@ -65,7 +67,29 @@ function App() {
         </button>
       </div>
       <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
-        <></>
+        <List>
+          <ListItem onClick={() => console.log("item 1")}>Item 1</ListItem>
+          <List collapsible title="Item 2">
+            <ListItem onClick={() => console.log("item 2.1")}>
+              Item 2.1
+            </ListItem>
+          </List>
+          <List title="Item 3">
+            <ListItem onClick={() => console.log("item 3.1")}>
+              Item 3.1
+            </ListItem>
+          </List>
+          <List collapsible initOpen title="Item 4">
+            <ListItem onClick={() => console.log("item 4.1")}>
+              Item 4.1
+            </ListItem>
+            <List title="Item 4.2">
+              <ListItem onClick={() => console.log("item 4.2.1")}>
+                Item 4.2.1
+              </ListItem>
+            </List>
+          </List>
+        </List>
       </Drawer>
       <Loading isLoading={isLoading} />
       <Modal

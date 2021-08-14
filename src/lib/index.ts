@@ -8,6 +8,8 @@ import Toast from "./Toast";
 import Menu from "./Menu";
 import MenuItem from "./Menu/MenuItem";
 import Tooltip from "./Tooltip";
+import List from "./List";
+import ListItem from "./List/ListItem";
 
 import "./style.css";
 
@@ -22,4 +24,6 @@ export {
   Menu,
   MenuItem,
   Tooltip,
+  List,
+  ListItem,
 };

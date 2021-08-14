@@ -67,15 +67,26 @@ declare global {
     children: ReactNode | Array<ReactNode>;
   }
 
-  interface MenuItemProps {
+  interface ItemProps {
     children: string;
     onClick: () => void;
   }
+
+  interface MenuItemProps extends ItemProps {}
 
   interface TooltipProps {
     message: string;
     children: ReactNode;
   }
+
+  interface ListProps {
+    title?: string;
+    collapsible?: boolean;
+    initOpen?: boolean;
+    children: ReactNode | Array<ReactNode>;
+  }
+
+  interface ListItemProps extends ItemProps {}
 }
 
 export {};

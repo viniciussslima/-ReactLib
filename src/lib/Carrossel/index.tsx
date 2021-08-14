@@ -61,7 +61,7 @@ const Carrossel: FC<CarrosselProps> = ({
         "The Carrossel component must have only children of type CarrosselItem component"
       );
     }
-  }, [children, itemWidth]);
+  }, [children]);
 
   useEffect(() => {
     if (qty <= 0) {

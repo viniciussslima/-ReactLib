@@ -1,7 +1,8 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useRef, useState, useEffect } from "react";
 import "./style.css";
 
 import defaultCloseIcon from "../assets/drawer/close.svg";
+import { useCallback } from "react";
 
 const Modal: FC<ModalProps> = ({
   open,
@@ -16,8 +17,11 @@ const Modal: FC<ModalProps> = ({
   titleStyle,
   cancelButtonStyle,
   okButtonStyle,
+  disableBackdropClick,
   children,
 }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
   const [openControll, setOpenControll] = useState(false);
 
   useEffect(() => {
@@ -28,15 +32,43 @@ const Modal: FC<ModalProps> = ({
     }
   }, [open]);
 
-  const cancel = (event: any) => {
-    setResponse(false);
-    onClose(event);
-  };
+  const cancel = useCallback(
+    (event: any) => {
+      setResponse(false);
+      onClose(event);
+    },
+    [onClose, setResponse]
+  );
 
-  const confirm = (event: any) => {
-    setResponse(true);
-    onClose(event);
-  };
+  const confirm = useCallback(
+    (event: any) => {
+      setResponse(true);
+      onClose(event);
+    },
+    [onClose, setResponse]
+  );
+
+  const hide = useCallback(
+    (event: Event) => {
+      const node = modalRef.current;
+      if (
+        node &&
+        event.target !== node &&
+        !node.contains(event.target as HTMLElement)
+      ) {
+        cancel(event);
+      }
+    },
+    [cancel]
+  );
+
+  useEffect(() => {
+    if (open && !disableBackdropClick) {
+      document.addEventListener("click", hide);
+    }
+
+    return () => document.removeEventListener("click", hide);
+  }, [hide, open, disableBackdropClick]);
 
   const renderContent = () => {
     return (
@@ -53,12 +85,9 @@ const Modal: FC<ModalProps> = ({
           )}
           <span style={titleStyle}>{title}</span>
         </div>
-        <hr />
-
         <div className="modal-content" style={contentStyle}>
           {children}
         </div>
-        <hr />
         <div className="modal-buttons" style={contentStyle}>
           <button
             className="viniciussslima-button modal-button modal-button-cancel"
@@ -82,7 +111,11 @@ const Modal: FC<ModalProps> = ({
     <>
       {openControll && open && (
         <div className="modal-background">
-          <div className="modal-container modal-open" style={containerStyle}>
+          <div
+            className="modal-container modal-open"
+            style={containerStyle}
+            ref={modalRef}
+          >
             {renderContent()}
           </div>
         </div>

@@ -27,6 +27,7 @@ declare global {
     setResponse: (value: boolean) => void;
     cancelButtonStyle?: CSSProperties;
     okButtonStyle?: CSSProperties;
+    disableBackdropClick?: boolean;
     children: ReactNode;
   }
 

@@ -12,6 +12,7 @@ declare global {
 
   interface LoadingProps {
     isLoading?: boolean;
+    color?: string;
   }
 
   interface ModalProps {

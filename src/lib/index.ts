@@ -11,6 +11,7 @@ import Tooltip from "./Tooltip";
 import List from "./List";
 import ListItem from "./List/ListItem";
 import Navbar from "./Navbar";
+import Paginator from "./Paginator";
 
 import "./style.css";
 
@@ -28,4 +29,5 @@ export {
   List,
   ListItem,
   Navbar,
+  Paginator,
 };

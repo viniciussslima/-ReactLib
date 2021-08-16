@@ -13,6 +13,7 @@ import {
   List,
   ListItem,
   Navbar,
+  Paginator,
 } from "./lib";
 
 function App() {
@@ -27,6 +28,20 @@ function App() {
   const [showToast, setShowToast] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
+  const [showPaginator, setShowPaginator] = useState(false);
+  const [paginatorItems, setPaginatorItems] = useState([
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+  ]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const changePage = (page: number) => {
+    setPaginatorItems((paginatorItems) =>
+      paginatorItems.map((_, index) => {
+        return index + 1 + (page - 1) * 10;
+      })
+    );
+    setCurrentPage(page);
+  };
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -60,6 +75,9 @@ function App() {
 
           <button onClick={() => setShowTooltip(!showTooltip)}>
             Show/Hide Tooltip
+          </button>
+          <button onClick={() => setShowPaginator(!showPaginator)}>
+            Show/Hide Paginator
           </button>
         </>
       </Navbar>
@@ -203,6 +221,28 @@ function App() {
           <Tooltip message="Message">
             <p>Tooltip example</p>
           </Tooltip>
+        </div>
+      )}
+
+      {showPaginator && (
+        <div>
+          <ul
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              margin: "50px 0px",
+            }}
+          >
+            {paginatorItems.map((item, i) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <Paginator
+            pages={5}
+            changePage={changePage}
+            currentPage={currentPage}
+          />
         </div>
       )}
     </div>

@@ -93,6 +93,12 @@ declare global {
     style?: CSSProperties;
     children: ReactNode | Array<ReactNode>;
   }
+
+  interface PaginatorProps {
+    pages: number;
+    changePage: (newPage: number) => void;
+    currentPage: number;
+  }
 }
 
 export {};

@@ -3,6 +3,19 @@ import "./style.css";
 
 import defaultCloseIcon from "../assets/drawer/close.svg";
 
+/**
+ *
+ * @param open boolean
+ * @param onClose React.MouseEventHandler<HTMLImageElement>
+ * @param containerStyle CSSProperties
+ * @param contentStyle CSSProperties
+ * @param closeButton boolean
+ * @param closeIcon Image src
+ * @param closeIconStyle CSSProperties
+ * @param children ReactNode
+ *
+ */
+
 const Drawer: FC<DrawerProps> = ({
   open,
   onClose,

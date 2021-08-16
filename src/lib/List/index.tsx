@@ -5,6 +5,14 @@ import { nanoid } from "nanoid";
 
 import DownIcon from "../assets/list/down.svg";
 
+/**
+ * @param title string
+ * @param collapseable boolean
+ * @param initOpen boolean
+ * @param children ReactNode | Array<ReactNode>
+ *
+ */
+
 const List: FC<ListProps> = ({ title, collapsible, initOpen, children }) => {
   const listContent = useRef(true);
 

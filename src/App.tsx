@@ -12,6 +12,7 @@ import {
   Tooltip,
   List,
   ListItem,
+  Navbar,
 } from "./lib";
 
 function App() {
@@ -38,34 +39,30 @@ function App() {
 
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          margin: "10px 500px",
-        }}
-      >
-        <button onClick={() => setOpenDrawer(true)}>Open drawer</button>
-        <button onClick={() => setIsLoading(true)}>Open loading</button>
-        <button onClick={() => setOPenModal(true)}>Open modal</button>
-        <button onClick={() => setShowCarrosel(!showCarrosel)}>
-          Show/Hide carrosel
-        </button>
-        <button onClick={() => setShowSwitch(!showSwitch)}>
-          Show/Hide switch
-        </button>
-        <button onClick={() => setShowToast(true)}>Show/Hide toast</button>
-        <button
-          ref={menuButton as RefObject<HTMLButtonElement>}
-          onClick={() => setShowMenu(true)}
-        >
-          Show/Hide menu
-        </button>
+      <Navbar>
+        <>
+          <button onClick={() => setOpenDrawer(true)}>Open drawer</button>
+          <button onClick={() => setIsLoading(true)}>Open loading</button>
+          <button onClick={() => setOPenModal(true)}>Open modal</button>
+          <button onClick={() => setShowCarrosel(!showCarrosel)}>
+            Show/Hide carrosel
+          </button>
+          <button onClick={() => setShowSwitch(!showSwitch)}>
+            Show/Hide switch
+          </button>
+          <button onClick={() => setShowToast(true)}>Show toast</button>
+          <button
+            ref={menuButton as RefObject<HTMLButtonElement>}
+            onClick={() => setShowMenu(true)}
+          >
+            Show menu
+          </button>
 
-        <button onClick={() => setShowTooltip(!showTooltip)}>
-          Show/Hide Tooltip
-        </button>
-      </div>
+          <button onClick={() => setShowTooltip(!showTooltip)}>
+            Show/Hide Tooltip
+          </button>
+        </>
+      </Navbar>
       <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
         <List>
           <ListItem onClick={() => console.log("item 1")}>Item 1</ListItem>

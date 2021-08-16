@@ -10,6 +10,7 @@ import MenuItem from "./Menu/MenuItem";
 import Tooltip from "./Tooltip";
 import List from "./List";
 import ListItem from "./List/ListItem";
+import Navbar from "./Navbar";
 
 import "./style.css";
 
@@ -26,4 +27,5 @@ export {
   Tooltip,
   List,
   ListItem,
+  Navbar,
 };

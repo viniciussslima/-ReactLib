@@ -88,6 +88,11 @@ declare global {
   }
 
   interface ListItemProps extends ItemProps {}
+
+  interface navbarProps {
+    style?: CSSProperties;
+    children: ReactNode | Array<ReactNode>;
+  }
 }
 
 export {};

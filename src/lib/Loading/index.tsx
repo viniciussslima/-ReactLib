@@ -1,6 +1,13 @@
 import React, { FC } from "react";
 import "./style.css";
 
+/**
+ *
+ * @param isLoading boolean
+ * @param color string
+ *
+ */
+
 const Loading: FC<LoadingProps> = ({ isLoading, color }) => {
   return (
     <>

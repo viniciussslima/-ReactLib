@@ -1,6 +1,16 @@
 import React, { FC } from "react";
 import "./style.css";
 
+/**
+ *
+ * @param check boolean
+ * @param onChange (value: boolean) => void
+ * @param text string
+ * @param checkColor color
+ * @param unCheckColor color
+ *
+ */
+
 const Switch: FC<SwitchProps> = ({
   check,
   onChange,

@@ -1,6 +1,14 @@
 import React, { FC, useState, useRef, useCallback, useEffect } from "react";
 import "./style.css";
 
+/**
+ * @param show boolean
+ * @param onHide () => void
+ * @param anchor HTMLElement | null
+ * @param children ReactNode | Array<ReactNode>
+ *
+ */
+
 const Menu: FC<MenuProps> = ({ show, onHide, anchor, children }) => {
   const [position, setPosition] = useState<DOMRect>();
 

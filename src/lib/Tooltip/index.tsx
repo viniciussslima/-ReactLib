@@ -1,6 +1,12 @@
 import React, { FC, useRef, useState, useCallback, useEffect } from "react";
 import "./style.css";
 
+/**
+ * @param message string
+ * @params children ReactNode
+ *
+ */
+
 const Tooltip: FC<TooltipProps> = ({ message, children }) => {
   const ref = useRef<HTMLDivElement>(null);
 

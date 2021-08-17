@@ -237,3 +237,73 @@ const ListExample = () => {
     )
 }
 ```
+
+- Navbar
+
+```JSX
+import React, { useState } from "react";
+import { Navbar, Drawer } from "viniciussslima"
+
+const NavbarExample = () => {
+    const [openDrawer, setOpenDrawer] = useState(false);
+
+    return (
+        <div>
+            <Navbar>
+                <button onClick={() => setOpenDrawer(true)}>Open drawer</button>
+            </Navbar>
+            <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                </ul>
+            </Drawer>
+        </div>
+    )
+}
+```
+
+- Paginator
+
+```JSX
+import React, { useState } from "react";
+import { Paginator } from "viniciussslima"
+
+const PaginatorExample = () => {
+    const [paginatorItems, setPaginatorItems] = useState([
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+    ]);
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const changePage = (page: number) => {
+        setPaginatorItems((paginatorItems) =>
+        paginatorItems.map((_, index) => {
+            return index + 1 + (page - 1) * 10;
+        })
+        );
+        setCurrentPage(page);
+    };
+
+    return (
+        <div>
+            <ul
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    margin: "50px 0px",
+                }}
+            >
+                {paginatorItems.map((item, i) => (
+                    <li key={item}>{item}</li>
+                ))}
+            </ul>
+            <Paginator
+                pages={5}
+                changePage={changePage}
+                currentPage={currentPage}
+            />
+        </div>
+    )
+}
+```

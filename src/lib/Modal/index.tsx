@@ -1,8 +1,25 @@
-import React, { FC, useRef, useState, useEffect } from "react";
+import React, { FC, useRef, useState, useCallback, useEffect } from "react";
 import "./style.css";
 
 import defaultCloseIcon from "../assets/drawer/close.svg";
-import { useCallback } from "react";
+
+/**
+ *
+ * @param open boolean
+ * @param onclose () => void
+ * @param containerStyle CSSProperties
+ * @param closeButton boolean
+ * @param closeIcon Image src
+ * @param closeIconStyle CSSProperties
+ * @param setResponse (value: boolean) => void
+ * @param title string
+ * @param titleStyle CSSProperties
+ * @param cancelButtonStyle CSSProperties
+ * @param okButtonStyle CSSProperties
+ * @param disableBackdropClick boolean
+ * @param children ReactNode
+ *
+ */
 
 const Modal: FC<ModalProps> = ({
   open,
@@ -23,14 +40,6 @@ const Modal: FC<ModalProps> = ({
   const modalRef = useRef<HTMLDivElement>(null);
 
   const [openControll, setOpenControll] = useState(false);
-
-  useEffect(() => {
-    if (open) {
-      setOpenControll(true);
-    } else {
-      setTimeout(() => setOpenControll(false), 800);
-    }
-  }, [open]);
 
   const cancel = useCallback(
     (event: any) => {
@@ -61,6 +70,14 @@ const Modal: FC<ModalProps> = ({
     },
     [cancel]
   );
+
+  useEffect(() => {
+    if (open) {
+      setOpenControll(true);
+    } else {
+      setTimeout(() => setOpenControll(false), 800);
+    }
+  }, [open]);
 
   useEffect(() => {
     if (open && !disableBackdropClick) {

@@ -3,6 +3,14 @@ import "./style.css";
 
 import { nanoid } from "nanoid";
 
+/**
+ *
+ * @param pages number
+ * @param changePage (newPage: number) => void
+ * @param currentPage number
+ *
+ */
+
 const Paginator: React.FC<PaginatorProps> = ({
   pages,
   changePage,

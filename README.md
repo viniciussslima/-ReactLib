@@ -277,9 +277,9 @@ const PaginatorExample = () => {
 
     const changePage = (page: number) => {
         setPaginatorItems((paginatorItems) =>
-        paginatorItems.map((_, index) => {
-            return index + 1 + (page - 1) * 10;
-        })
+            paginatorItems.map((_, index) => {
+                return index + 1 + (page - 1) * 10;
+            })
         );
         setCurrentPage(page);
     };

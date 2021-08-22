@@ -1,6 +1,8 @@
 import React, { FC, useMemo, useEffect } from "react";
 import "./style.css";
 
+import { ToastProps } from "viniciussslima";
+
 import infoIcon from "../assets/toast/info.svg";
 import warningIcon from "../assets/toast/warning.svg";
 import errorIcon from "../assets/toast/error.svg";

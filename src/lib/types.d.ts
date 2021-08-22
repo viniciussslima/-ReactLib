@@ -1,5 +1,5 @@
-declare global {
-  interface DrawerProps {
+declare module "viniciussslima" {
+  export interface DrawerProps {
     open: boolean;
     onClose: React.MouseEventHandler<HTMLImageElement>;
     containerStyle?: CSSProperties;
@@ -10,12 +10,12 @@ declare global {
     children: ReactNode;
   }
 
-  interface LoadingProps {
+  export interface LoadingProps {
     isLoading?: boolean;
     color?: string;
   }
 
-  interface ModalProps {
+  export interface ModalProps {
     open: boolean;
     onClose: MouseEventHandler<HTMLElement>;
     containerStyle?: CSSProperties;
@@ -32,7 +32,7 @@ declare global {
     children: ReactNode;
   }
 
-  interface CarrosselProps {
+  export interface CarrosselProps {
     height: number;
     itemWidth: number;
     qty: number;
@@ -41,12 +41,12 @@ declare global {
     children: ReactNode | Array<ReactNode>;
   }
 
-  interface CarrosselItemProps {
+  export interface CarrosselItemProps {
     style?: CSSProperties;
     children: ReactNode;
   }
 
-  interface SwitchProps {
+  export interface SwitchProps {
     check: boolean;
     onChange: (value: boolean) => void;
     text?: string;
@@ -54,7 +54,7 @@ declare global {
     unCheckColor?: string;
   }
 
-  interface ToastProps {
+  export interface ToastProps {
     show: boolean;
     onHide: () => void;
     text: string;
@@ -62,44 +62,42 @@ declare global {
     time?: number;
   }
 
-  interface MenuProps {
+  export interface MenuProps {
     show: boolean;
     onHide: () => void;
     anchor: HTMLElement | null;
     children: ReactNode | Array<ReactNode>;
   }
 
-  interface ItemProps {
+  export interface ItemProps {
     children: string;
     onClick: () => void;
   }
 
-  interface MenuItemProps extends ItemProps {}
+  export interface MenuItemProps extends ItemProps {}
 
-  interface TooltipProps {
+  export interface TooltipProps {
     message: string;
     children: ReactNode;
   }
 
-  interface ListProps {
+  export interface ListProps {
     title?: string;
     collapsible?: boolean;
     initOpen?: boolean;
     children: ReactNode | Array<ReactNode>;
   }
 
-  interface ListItemProps extends ItemProps {}
+  export interface ListItemProps extends ItemProps {}
 
-  interface navbarProps {
+  export interface NavbarProps {
     style?: CSSProperties;
     children: ReactNode | Array<ReactNode>;
   }
 
-  interface PaginatorProps {
+  export interface PaginatorProps {
     pages: number;
     changePage: (newPage: number) => void;
     currentPage: number;
   }
 }
-
-export {};

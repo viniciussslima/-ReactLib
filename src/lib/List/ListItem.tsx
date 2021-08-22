@@ -1,5 +1,7 @@
 import React, { FC } from "react";
 
+import { ListItemProps } from "viniciussslima";
+
 /**
  *
  * @param children ReactNode

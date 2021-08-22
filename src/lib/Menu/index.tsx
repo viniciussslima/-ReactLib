@@ -1,6 +1,8 @@
 import React, { FC, useState, useRef, useCallback, useEffect } from "react";
 import "./style.css";
 
+import { MenuProps } from "viniciussslima";
+
 /**
  * @param show boolean
  * @param onHide () => void

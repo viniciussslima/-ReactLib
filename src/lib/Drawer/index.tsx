@@ -1,6 +1,8 @@
 import React, { FC, useState, useEffect } from "react";
 import "./style.css";
 
+import { DrawerProps } from "viniciussslima";
+
 import defaultCloseIcon from "../assets/drawer/close.svg";
 
 /**

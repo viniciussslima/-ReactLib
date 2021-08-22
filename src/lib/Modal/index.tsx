@@ -1,6 +1,8 @@
 import React, { FC, useRef, useState, useCallback, useEffect } from "react";
 import "./style.css";
 
+import { ModalProps } from "viniciussslima";
+
 import defaultCloseIcon from "../assets/drawer/close.svg";
 
 /**

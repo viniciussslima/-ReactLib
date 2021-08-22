@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import "./style.css";
 
+import { NavbarProps } from "viniciussslima";
+
 /**
  *
  * @param style CSSProperties
@@ -8,7 +10,7 @@ import "./style.css";
  *
  */
 
-const Navbar: FC<navbarProps> = ({ style, children }) => (
+const Navbar: FC<NavbarProps> = ({ style, children }) => (
   <header className="navbar" style={style}>
     {children}
   </header>

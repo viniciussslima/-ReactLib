@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import "./style.css";
 
+import { CarrosselItemProps } from "viniciussslima";
+
 /**
  *
  * @param style (optional) CSSProperties

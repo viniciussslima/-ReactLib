@@ -1,6 +1,8 @@
 import React, { FC, useRef, useState, useCallback, useEffect } from "react";
 import "./style.css";
 
+import { TooltipProps } from "viniciussslima";
+
 /**
  * @param message string
  * @params children ReactNode

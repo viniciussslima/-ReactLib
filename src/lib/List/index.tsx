@@ -1,6 +1,7 @@
 import React, { FC, useRef, useState, useEffect } from "react";
 import "./styles.css";
 
+import { ListProps } from "viniciussslima";
 import { nanoid } from "nanoid";
 
 import DownIcon from "../assets/list/down.svg";

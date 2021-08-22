@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import "./style.css";
 
+import { SwitchProps } from "viniciussslima";
+
 /**
  *
  * @param check boolean

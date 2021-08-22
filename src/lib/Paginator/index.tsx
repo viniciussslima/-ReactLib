@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import "./style.css";
 
+import { PaginatorProps } from "viniciussslima";
 import { nanoid } from "nanoid";
 
 /**

@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import "./style.css";
 
+import { MenuItemProps } from "viniciussslima";
 import { nanoid } from "nanoid";
 
 /**

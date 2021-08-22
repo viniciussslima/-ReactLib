@@ -1,6 +1,7 @@
 import React, { FC, useRef, useState, useCallback, useEffect } from "react";
 import "./style.css";
 
+import { CarrosselProps } from "viniciussslima";
 import { nanoid } from "nanoid";
 
 import leftIcon from "../assets/carrossel/left.svg";

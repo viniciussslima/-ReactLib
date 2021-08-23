@@ -115,7 +115,7 @@ declare module "viniciussslima" {
 
   export interface NavbarProps {
     style?: CSSProperties;
-    children: ReactNode | Array<ReactNode>;
+    children?: ReactNode | Array<ReactNode>;
   }
 
   export const Navbar: React.FC<NavbarProps>;

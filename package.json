@@ -2,7 +2,7 @@
   "name": "viniciussslima",
   "version": "0.2.7",
   "main": "dist/index.js",
-  "types": "src/lib/types.d.ts",
+  "types": "dist/lib/types.d.ts",
   "repository": "https://github.com/viniciussslima/ReactLib",
   "homepage": "https://github.com/viniciussslima/ReactLib",
   "author": {
@@ -29,7 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "clean": "rimraf dist/",
-    "copy-files": "copyfiles -u 1 src/**/*.svg src/**/*.css src/lib/**/*.css dist/",
+    "copy-files": "copyfiles -u 1 src/lib/types.d.ts src/**/*.svg src/**/*.css src/lib/**/*.css dist/",
     "build": "yarn clean && tsc && yarn copy-files",
     "launch": "yarn build && yarn publish"
   },

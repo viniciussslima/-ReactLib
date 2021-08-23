@@ -1,6 +1,6 @@
 {
   "name": "viniciussslima",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "main": "dist/index.js",
   "types": "src/lib/types.d.ts",
   "repository": "https://github.com/viniciussslima/ReactLib",

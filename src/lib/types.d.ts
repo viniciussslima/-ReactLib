@@ -86,10 +86,12 @@ declare module "viniciussslima" {
 
   export interface ItemProps {
     children: string;
-    onClick: () => void;
+    onClick?: () => void;
   }
 
-  export interface MenuItemProps extends ItemProps {}
+  export interface MenuItemProps extends ItemProps {
+    onClick: () => void;
+  }
 
   export const MenuItem: React.FC<MenuItemProps>;
 

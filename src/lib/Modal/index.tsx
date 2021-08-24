@@ -5,24 +5,6 @@ import { ModalProps } from "viniciussslima";
 
 import defaultCloseIcon from "../assets/drawer/close.svg";
 
-/**
- *
- * @param open boolean
- * @param onclose () => void
- * @param containerStyle CSSProperties
- * @param closeButton boolean
- * @param closeIcon Image src
- * @param closeIconStyle CSSProperties
- * @param setResponse (value: boolean) => void
- * @param title string
- * @param titleStyle CSSProperties
- * @param cancelButtonStyle CSSProperties
- * @param okButtonStyle CSSProperties
- * @param disableBackdropClick boolean
- * @param children ReactNode
- *
- */
-
 const Modal: FC<ModalProps> = ({
   open,
   onClose,

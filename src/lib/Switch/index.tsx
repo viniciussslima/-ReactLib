@@ -3,16 +3,6 @@ import "./style.css";
 
 import { SwitchProps } from "viniciussslima";
 
-/**
- *
- * @param check boolean
- * @param onChange (value: boolean) => void
- * @param text string
- * @param checkColor color
- * @param unCheckColor color
- *
- */
-
 const Switch: FC<SwitchProps> = ({
   check,
   onChange,

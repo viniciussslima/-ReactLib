@@ -3,12 +3,6 @@ import "./style.css";
 
 import { TooltipProps } from "viniciussslima";
 
-/**
- * @param message string
- * @params children ReactNode
- *
- */
-
 const Tooltip: FC<TooltipProps> = ({ message, children }) => {
   const ref = useRef<HTMLDivElement>(null);
 

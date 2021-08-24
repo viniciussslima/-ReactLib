@@ -3,13 +3,6 @@ import "./style.css";
 
 import { LoadingProps } from "viniciussslima";
 
-/**
- *
- * @param isLoading boolean
- * @param color string
- *
- */
-
 const Loading: FC<LoadingProps> = ({ isLoading, color }) => {
   return (
     <>

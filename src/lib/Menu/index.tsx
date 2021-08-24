@@ -3,14 +3,6 @@ import "./style.css";
 
 import { MenuProps } from "viniciussslima";
 
-/**
- * @param show boolean
- * @param onHide () => void
- * @param anchor HTMLElement | null
- * @param children ReactNode | Array<ReactNode>
- *
- */
-
 const Menu: FC<MenuProps> = ({ show, onHide, anchor, children }) => {
   const [position, setPosition] = useState<DOMRect>();
 

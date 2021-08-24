@@ -7,17 +7,6 @@ import { nanoid } from "nanoid";
 import leftIcon from "../assets/carrossel/left.svg";
 import rightIcon from "../assets/carrossel/right.svg";
 
-/**
- *
- * @param height number
- * @param itemWidth number
- * @param qty number
- * @param space (optional) number
- * @param timeout (optional) number
- * @param children ReactNode | Array<ReactNode>
- *
- */
-
 const Carrossel: FC<CarrosselProps> = ({
   height,
   itemWidth,

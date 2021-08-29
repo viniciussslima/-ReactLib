@@ -33,7 +33,7 @@ const Tooltip: FC<TooltipProps> = ({ message, children }) => {
 
   return (
     <div className="tooltip-container">
-      {show && <span className="tooltip-message">{message}</span>}
+      {show && <pre className="tooltip-message">{message}</pre>}
       <div ref={ref}>{children}</div>
     </div>
   );

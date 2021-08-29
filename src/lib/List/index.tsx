@@ -22,27 +22,6 @@ const List: FC<ListProps> = ({ title, collapsible, initOpen, children }) => {
   });
 
   useEffect(() => {
-    let valid: boolean = true;
-    if (Array.isArray(children)) {
-      valid = children.every(
-        (element) =>
-          element.type.name === "ListItem" || element.type.name === "List"
-      );
-    } else if (
-      children.type.name !== "ListItem" ||
-      children.type.name === "List"
-    ) {
-      valid = false;
-    }
-
-    if (!valid) {
-      throw new Error(
-        "The List component must have only children of type ListItem component or List component"
-      );
-    }
-  }, [children]);
-
-  useEffect(() => {
     if (collapsible && (!title || !title.length)) {
       throw new Error("The List collapsible component must have an title");
     }

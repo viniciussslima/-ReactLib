@@ -48,23 +48,6 @@ const Carrossel: FC<CarrosselProps> = ({
   }, [itemWidth, canClick, qty]);
 
   useEffect(() => {
-    let valid: boolean = true;
-    if (Array.isArray(children)) {
-      valid = children.every(
-        (element) => element.type.name === "CarrosselItem"
-      );
-    } else if (children.type.name !== "CarrosselItem") {
-      valid = false;
-    }
-
-    if (!valid) {
-      throw new Error(
-        "The Carrossel component must have only children of type CarrosselItem component"
-      );
-    }
-  }, [children]);
-
-  useEffect(() => {
     if (qty <= 0) {
       throw new Error("The carrossel component must have at least qty = 1");
     }

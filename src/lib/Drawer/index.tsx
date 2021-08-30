@@ -4,6 +4,7 @@ import "./style.css";
 import { DrawerProps } from "viniciussslima";
 
 import defaultCloseIcon from "../assets/drawer/close.svg";
+import { useCallback } from "react";
 
 const Drawer: FC<DrawerProps> = ({
   open,
@@ -13,6 +14,7 @@ const Drawer: FC<DrawerProps> = ({
   closeButton = true,
   closeIcon = defaultCloseIcon,
   closeIconStyle,
+  disableBackdropClick,
   children,
 }) => {
   const [openControll, setOpenControll] = useState(false);
@@ -24,6 +26,15 @@ const Drawer: FC<DrawerProps> = ({
       setTimeout(() => setOpenControll(false), 800);
     }
   }, [open]);
+
+  const backdropClick = useCallback(
+    (event) => {
+      if (!disableBackdropClick) {
+        onClose(event);
+      }
+    },
+    [disableBackdropClick, onClose]
+  );
 
   const renderContent = () => {
     return (
@@ -43,18 +54,27 @@ const Drawer: FC<DrawerProps> = ({
       </>
     );
   };
+
   return (
     <>
       {openControll && open && (
-        <div className="drawer-background">
-          <div className="drawer-container drawer-open" style={containerStyle}>
+        <div className="drawer-background" onClick={backdropClick}>
+          <div
+            className="drawer-container drawer-open"
+            style={containerStyle}
+            onClick={(event) => event.stopPropagation()}
+          >
             {renderContent()}
           </div>
         </div>
       )}
       {openControll && !open && (
-        <div className="drawer-background">
-          <div className="drawer-container drawer-close" style={containerStyle}>
+        <div className="drawer-background" onClick={backdropClick}>
+          <div
+            className="drawer-container drawer-close"
+            style={containerStyle}
+            onClick={(event) => event.stopPropagation()}
+          >
             {renderContent()}
           </div>
         </div>

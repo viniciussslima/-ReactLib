@@ -1,12 +1,13 @@
 declare module "viniciussslima" {
   export interface DrawerProps {
     open: boolean;
-    onClose: React.MouseEventHandler<HTMLImageElement>;
+    onClose: React.MouseEventHandler<HTMLElement>;
     containerStyle?: CSSProperties;
     contentStyle?: CSSProperties;
     closeButton?: boolean;
     closeIcon?: string;
     closeIconStyle?: CSSProperties;
+    disableBackdropClick?: boolean;
     children: ReactNode;
   }
 
@@ -19,6 +20,7 @@ declare module "viniciussslima" {
    * @param closeButton (optional) boolean
    * @param closeIcon (optional) Image src
    * @param closeIconStyle (optional) CSSProperties
+   * @param disableBackdropClick (optional) boolean
    * @param children ReactNode
    *
    **/
@@ -236,7 +238,7 @@ declare module "viniciussslima" {
   /**
    *
    * @param style (optional) CSSProperties
-   * @param children (optional) ReactNode
+   * @param children ReactNode
    *
    **/
 

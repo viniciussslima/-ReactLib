@@ -64,23 +64,16 @@ const List: FC<ListProps> = ({ title, collapsible, initOpen, children }) => {
     }
   };
 
-  const renderList = () => {
-    // if (collapsible) {
-    //   if (show) {
-    //     return renderListItems();
-    //   }
-
-    //   return null;
-    // }
-
-    return renderListItems();
-  };
-
   return (
     <div className="list-container">
       {title && (
         <div className="list-title-container" onClick={() => setShow(!show)}>
-          <span className="list-title">{title}</span>
+          <span
+            className="list-title"
+            style={{ cursor: collapsible ? "pointer" : "default" }}
+          >
+            {title}
+          </span>
           {collapsible && (
             <img
               className="list-down-icon"
@@ -91,7 +84,7 @@ const List: FC<ListProps> = ({ title, collapsible, initOpen, children }) => {
         </div>
       )}
       <ul className={className} style={{ marginLeft: collapsible ? 5 : 0 }}>
-        {renderList()}
+        {renderListItems()}
       </ul>
     </div>
   );

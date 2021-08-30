@@ -14,11 +14,11 @@ declare module "viniciussslima" {
    *
    * @param open boolean
    * @param onClose React.MouseEventHandler<HTMLImageElement>
-   * @param containerStyle CSSProperties
-   * @param contentStyle CSSProperties
-   * @param closeButton boolean
-   * @param closeIcon Image src
-   * @param closeIconStyle CSSProperties
+   * @param containerStyle (optional) CSSProperties
+   * @param contentStyle (optional) CSSProperties
+   * @param closeButton (optional) boolean
+   * @param closeIcon (optional) Image src
+   * @param closeIconStyle (optional) CSSProperties
    * @param children ReactNode
    *
    **/
@@ -26,13 +26,13 @@ declare module "viniciussslima" {
   export const Drawer: React.FC<DrawerProps>;
 
   export interface LoadingProps {
-    isLoading?: boolean;
+    isLoading: boolean;
     color?: string;
   }
 
   /**
    *
-   * @param isLoading boolean
+   * @param isLoading  (optional) boolean
    * @param color string
    *
    **/
@@ -60,16 +60,16 @@ declare module "viniciussslima" {
    *
    * @param open boolean
    * @param onclose () => void
-   * @param containerStyle CSSProperties
-   * @param closeButton boolean
-   * @param closeIcon Image src
-   * @param closeIconStyle CSSProperties
-   * @param setResponse (value: boolean) => void
+   * @param containerStyle (optional) CSSProperties
+   * @param closeButton (optional) boolean
+   * @param closeIcon (optional) Image src
+   * @param closeIconStyle (optional) CSSProperties
    * @param title string
-   * @param titleStyle CSSProperties
-   * @param cancelButtonStyle CSSProperties
-   * @param okButtonStyle CSSProperties
-   * @param disableBackdropClick boolean
+   * @param titleStyle (optional) CSSProperties
+   * @param setResponse (value: boolean) => void
+   * @param cancelButtonStyle (optional) CSSProperties
+   * @param okButtonStyle (optional) CSSProperties
+   * @param disableBackdropClick (optional) boolean
    * @param children ReactNode
    *
    **/
@@ -92,7 +92,7 @@ declare module "viniciussslima" {
    * @param qty number
    * @param space (optional) number
    * @param timeout (optional) number
-   * @param children ReactNode | Array<ReactNode>
+   * @param children CarrosselItem
    *
    **/
 
@@ -124,9 +124,9 @@ declare module "viniciussslima" {
    *
    * @param check boolean
    * @param onChange (value: boolean) => void
-   * @param text string
-   * @param checkColor color
-   * @param unCheckColor color
+   * @param text (optional) string
+   * @param checkColor (optional) color
+   * @param unCheckColor (optional) color
    *
    **/
 
@@ -146,7 +146,7 @@ declare module "viniciussslima" {
    * @param onHide () => void
    * @param text string
    * @param type string
-   * @param time number
+   * @param time (optional) number
    *
    **/
 
@@ -163,7 +163,7 @@ declare module "viniciussslima" {
    * @param show boolean
    * @param onHide () => void
    * @param anchor HTMLElement | null
-   * @param children ReactNode | Array<ReactNode>
+   * @param children MenuItem
    *
    **/
 
@@ -208,10 +208,10 @@ declare module "viniciussslima" {
   }
 
   /**
-   * @param title string
-   * @param collapseable boolean
-   * @param initOpen boolean
-   * @param children ReactNode | Array<ReactNode>
+   * @param title (optional) string
+   * @param collapseable (optional) boolean
+   * @param initOpen (optional) boolean
+   * @param children ListItem
    *
    **/
 
@@ -235,8 +235,8 @@ declare module "viniciussslima" {
 
   /**
    *
-   * @param style CSSProperties
-   * @param children ReactNode
+   * @param style (optional) CSSProperties
+   * @param children (optional) ReactNode
    *
    **/
 

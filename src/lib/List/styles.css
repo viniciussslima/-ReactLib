@@ -52,7 +52,7 @@
 }
 
 .list-item {
-  width: 100%;
+  width: fit-content;
   cursor: pointer;
   list-style: none;
   padding: 10px 5px;
